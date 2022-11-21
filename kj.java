@@ -3,15 +3,17 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class SQLDatabaseConnection {
+    public static String connectionUrl =
+    "jdbc:mysql://deltona.birdnest.org:3306"
+                + "database=vaughnk3_final_group6;"
+                + "user=my.vaughnk3;"
+                + "password=!$w9oh71;"
+                + "encrypt=true;"
+                + "trustServerCertificate=false;"
+                + "loginTimeout=30;";
+
     public static void main (String[] args) {
-        String connectionUrl =
-            "jdbc:mysql://deltona.birdnest.org:3306"
-                        + "database=vaughnk3_final_group6;"
-                        + "user=my.vaughnk3;"
-                        + "password=!$w9oh71;"
-                        + "encrypt=true;"
-                        + "trustServerCertificate=false;"
-                        + "loginTimeout=30;";
+        
             
      ResultSet resultSet = null;
 
