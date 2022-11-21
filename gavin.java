@@ -1,3 +1,7 @@
+//Gavin T. Anderson
+//References: 
+  //https://learn.microsoft.com/en-us/sql/connect/jdbc/step-3-proof-of-concept-connecting-to-sql-using-java?view=sql-server-ver16
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
