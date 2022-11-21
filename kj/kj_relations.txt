@@ -1,1 +1,9 @@
 CREATE TABLE TVShow
+	( id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+	  name VARCHAR(30) NOT NULL,
+	  yearReleased VARCHAR(4),    ------- DATE/TIME
+	  description VARCHAR(300) -----
+	  PRIMARY KEY(id))
+
+CREATE TABLE Season
+	  
