@@ -1,10 +1,10 @@
+//Reference (based from):
+//  https://www.tutorialspoint.com/java_mysql/java_mysql_select_database.htm
 public class Jared {
 
     static String databaseUrl = "deltona.birdnest.org";
-    static String usr = "";
-    static String pass = "";
 
     public static void query() {
-
+        
     }
 }
