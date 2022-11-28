@@ -10,10 +10,10 @@ import java.sql.SQLException;
     //connecting to database
     public static void main(String[] args) {
         String connectionUrl =
-                "jdbc:sqlserver://deltona.birdnest.org:3306"
-                        + "database=my_andersong6_gavin;"
-                        + "user=my.andersong6;"
-                        + "password=145d8#h%;"
+            "jdbc:mysql://deltona.birdnest.org:3306"
+                        + "database=vaughnk3_final_group6;"
+                        + "user=my.vaughnk3;"
+                        + "password=!$w9oh71;"
                         + "encrypt=true;"
                         + "trustServerCertificate=false;"
                         + "loginTimeout=30;";
