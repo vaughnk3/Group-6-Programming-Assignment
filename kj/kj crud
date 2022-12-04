@@ -1,0 +1,4 @@
+INSERT INTO TVShow (id, name, yearReleased, description) VALUES (NULL, "The Office", 2004, "The Office with Mitchel Scotch and Jimmy and Dwigt Schrute");    //CREATE
+SELECT * FROM TVShow;     //RETRIEVE
+UPDATE TVShow SET description="The Office with Michael Scott and Jimmy and Dwight Schrute. New!" WHERE name="The Office";     //UPDATE
+DELETE FROM TVShow WHERE name="The Office";   //DELETE
