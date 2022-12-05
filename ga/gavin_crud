@@ -1,4 +1,4 @@
-INSERT INTO Season (id, seasonName, seasonNumber, tvShowID) VALUES (NULL, "The Beginning", 1, 1, 1);
+INSERT INTO Season (id, seasonName, seasonNumber, tvShowID) VALUES (NULL, "The Beginning", 1, 1);
 SELECT * FROM Season;
 UPDATE Season SET seasonName = "True Beginning" WHERE TVShowID = 1 AND seasonNumber = 1;
 DELETE FROM Season WHERE  tvShowID = 1 AND seasonNumber = 1;
