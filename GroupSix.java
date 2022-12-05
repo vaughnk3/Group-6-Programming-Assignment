@@ -19,19 +19,25 @@ public class GroupSix {
             e.printStackTrace();
         }
         String connUrl = "jdbc:mysql://deltona.birdnest.org:3306";
+        String user = "my.vaughnk3";
+        String password = "!$w9oh71";
         Properties info = new Properties();
-        info.put("user", "my.vaughnk3");
-        info.put("password", "!$w9oh71");
+        info.put("user", user);
+        info.put("password", password);
         info.put("database", "my_vaughnk3_final_group6");
         info.put("encrypt", true);
         info.put("trustServerCertificate", false);
         info.put("loginTimeout", 30);
         
+        Connection connection = null;
+        PreparedStatement stmt = null;
         try { 
-            //TODO: Also, probably not safe due to SQL injection problem, so I'm going to try to see what I can do to fix that.
             //Establish the connection
-            Connection connection = DriverManager.getConnection(connUrl, info);
-            Statement stmt = connection.createStatement();
+            connection = DriverManager.getConnection(connUrl, info);
+            //To prevent injection, we must use what's called a "prepared statement."
+            stmt = connection.prepareStatement(connUrl);
+            stmt.setString(1, user);
+            stmt.setString(2, password);
 
             //Replace the comments with your own methods
             //TvShow query (KJ)
@@ -41,10 +47,19 @@ public class GroupSix {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        finally {
+            try {
+                //Always close the statement and the connection.
+                stmt.close();
+                connection.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     //Episode query (Jared)
-    private static void EpisodeQuery(Statement stmt) throws Exception {
+    private static void EpisodeQuery(PreparedStatement stmt) throws Exception {
         String command = "";
         String output = "";
 
