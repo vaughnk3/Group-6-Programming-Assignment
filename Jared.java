@@ -17,7 +17,7 @@ public class Jared {
             Statement stmt = connection.createStatement();
             //Creation
             command = "INSERT INTO Episode(id, seasonID, episodeNumber, episodeName, description, runtime) VALUES (NULL, 1, 1, \"The Office Field Guide\", \"When a documentary crew arrives at the office, manager Michael Scott attempts to paint a rosy picture but fails after learning the company will be downsizing.\" 23);";
-            stmt.executeQuery(command);
+            stmt.executeUpdate(command);
             //Retrieval (must display the results using the ResultingSet object)
             command = "SELECT * FROM Episode";
             ResultSet retrievalSet = stmt.executeQuery(command);
@@ -31,12 +31,13 @@ public class Jared {
             }
             System.out.println("Selected Episode tuples: " + output);
             output = "";
+            retrievalSet.close();
             //Update
             command = "UPDATE Episode SET episodeName=\"The Office Pilot Ep. 1: The Office Field Guide\" WHERE seasonID=1 AND episodeNumber=1;";
-            stmt.executeQuery(command);
+            stmt.executeUpdate(command);
             //Deletion
             command = "DELETE FROM Episode WHERE seasonID=1 AND episodeNumber=1;";
-            stmt.executeQuery(command);
+            stmt.executeUpdate(command);
         } catch (Exception e) {
             e.printStackTrace();
         }
