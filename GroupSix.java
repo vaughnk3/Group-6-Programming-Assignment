@@ -37,7 +37,7 @@ public class GroupSix {
             command = "INSERT INTO Episode(id, seasonID, episodeNumber, episodeName, description, runtime) VALUES (NULL, 1, 1, \"The Office Field Guide\", \"When a documentary crew arrives at the office, manager Michael Scott attempts to paint a rosy picture but fails after learning the company will be downsizing.\" 23);";
             stmt.executeUpdate(command);
             //Retrieval (must display the results using the ResultingSet object)
-            command = "SELECT * FROM Episode";
+            command = "SELECT * FROM Episode;";
             ResultSet retrievalSet = stmt.executeQuery(command);
             while(retrievalSet.next()) {
                 output += "\n Object ID " + String.valueOf(retrievalSet.getInt("id")) + ": ";
