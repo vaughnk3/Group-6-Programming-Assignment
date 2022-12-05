@@ -7,10 +7,10 @@ import java.util.*;
 public class GroupSix {
 
     public static void main(String args[]) {
-        query();
+        Query();
     }
 
-    public static void query() {
+    public static void Query() {
         //Creating connection specifics here
         try {
             Class.forName("com.mysql.cj.jdbc.Driver"); //Try to get the jdbc driver?
@@ -33,19 +33,17 @@ public class GroupSix {
             Connection connection = DriverManager.getConnection(connUrl, info);
             Statement stmt = connection.createStatement();
 
-            //TvShow (KJ)
-            
-            //Season (Gavin)
-
-            //Episode (Jared)
-
-            //Actors in Movie? (Robert)
+            //Replace the comments with your own methods
+            //TvShow query (KJ)
+            //Season query (Gavin)
             EpisodeQuery(stmt);
+            //Actors in Movie (Robert)
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    //Episode query (Jared)
     private static void EpisodeQuery(Statement stmt) throws Exception {
         String command = "";
         String output = "";
