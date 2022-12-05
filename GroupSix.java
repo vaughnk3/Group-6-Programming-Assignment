@@ -73,11 +73,10 @@ public class GroupSix {
         ResultSet retrievalSet = stmt.executeQuery(command);
         while(retrievalSet.next()) {
             output += "\n Object ID " + String.valueOf(retrievalSet.getInt("id")) + ": ";
-            output += "\n\t Season: " + String.valueOf(retrievalSet.getInt("seasonID"));
-            output += "\n\t Episode: " + String.valueOf(retrievalSet.getInt("episodeNumber"));
-            output += "\n\t Name: " + retrievalSet.getString("episodeName");
-            output += "\n\t Description: " + retrievalSet.getString("description");
-            output += "\n\t Runtime: " + String.valueOf(retrievalSet.getInt("runtime"));
+            output += "\n\t Season Name: " + String.valueOf(retrievalSet.getInt("seasonName"));
+            output += "\n\t Season Number: " + String.valueOf(retrievalSet.getInt("seasonNumber"));
+            output += "\n\t TV Show ID: " + retrievalSet.getString("tvShowID");
+
         }
         System.out.println("Selected Season tuples: " + output);
         retrievalSet.close();
