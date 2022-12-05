@@ -29,15 +29,6 @@ CREATE TABLE Episode
 		PRIMARY KEY(id)
 	);
 
-CREATE TABLE Acts_In_Mov
-	(
-		movieId SMALLINT UNSIGNED,
-		personId SMALLINT UNSIGNED
-	);
-
-
-
-//Not sure if below is needed please check - rs
 
 CREATE TABLE Person
 	(
