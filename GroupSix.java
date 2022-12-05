@@ -27,9 +27,6 @@ public class GroupSix {
         info.put("trustServerCertificate", false);
         info.put("loginTimeout", 30);
         
-
-        
-        String output = "";
         try { 
             //TODO: Also, probably not safe due to SQL injection problem, so I'm going to try to see what I can do to fix that.
             //Establish the connection
