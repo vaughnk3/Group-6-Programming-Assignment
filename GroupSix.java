@@ -147,9 +147,66 @@ public class GroupSix {
         //Update
         command = "UPDATE Episode SET episodeName=\"The Office Pilot Ep. 1: The Office Field Guide\" WHERE seasonID=1 AND episodeNumber=1;";
         stmt.executeUpdate(command);
-        
+
         //Deletion
         command = "DELETE FROM Episode WHERE seasonID=1 AND episodeNumber=1;";
         stmt.executeUpdate(command);
     }
+
+    //RS
+    private static void Person(PreparedStatement stmt) throws Exception {
+        String command = "";
+        String output = "";
+
+        //Creation
+        command = "INSERT INTO Person (id, firstName, lastName, sex) VALUES (NULL, \"John\", \"Madden\", \"Female\");";
+        stmt.executeUpdate(command);
+        //Retrieval (must display the results using the ResultingSet object)
+        command = "SELECT * FROM Person;";
+        ResultSet retrievalSet = stmt.executeQuery(command);
+        while(retrievalSet.next()) {
+            output += "\n Object ID " + String.valueOf(retrievalSet.getInt("id")) + ": ";
+            output += "\n\t First Name: " + String.valueOf(retrievalSet.getInt("firstName"));
+            output += "\n\t Last Name: " + String.valueOf(retrievalSet.getInt("lastName"));
+            output += "\n\t Sex: " + retrievalSet.getString("sex");
+        }
+        System.out.println("Selected Person tuples: " + output);
+        retrievalSet.close();
+
+        //Update
+        command = "UPDATE person SET firstName=\"Bobby\" WHERE id=1 AND firstName= \"John\";";
+        stmt.executeUpdate(command);
+
+        //Deletion
+        command = "DELETE FROM Person WHERE id=1 AND firstName=\"John\";";
+        stmt.executeUpdate(command);
+    }
+
+    private static void Person(PreparedStatement stmt) throws Exception {
+        String command = "";
+        String output = "";
+
+        //Creation
+        command = "INSERT INTO ACTS_IN_EP (EpisodeID, PersonID) VALUES (1,1);";
+        stmt.executeUpdate(command);
+        //Retrieval (must display the results using the ResultingSet object)
+        command = "SELECT * FROM Person;";
+        ResultSet retrievalSet = stmt.executeQuery(command);
+        while(retrievalSet.next()) {
+            output += "\n Episode ID: " + String.valueOf(retrievalSet.getInt("EpisodeID")) + ": ";
+            output += "\n\t Person ID " + String.valueOf(retrievalSet.getInt("PersonID"));
+        }
+        System.out.println("Selected ACTS_IN_EP tuples: " + output);
+        retrievalSet.close();
+
+        //Update
+        command = "UPDATE ACTS_IN_EP SET EpisodeID=2 WHERE EpisodeID=1 AND PersonID=1;";
+        stmt.executeUpdate(command);
+
+        //Deletion
+        command = "DELETE FROM ACTS_IN_EP WHERE EpisodeID=2 AND PersonID=1;";
+        stmt.executeUpdate(command);
+    }
+
+    
 }
