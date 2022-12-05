@@ -22,7 +22,7 @@ public class GroupSix {
         Properties info = new Properties();
         info.put("user", "my.vaughnk3");
         info.put("password", "!$w9oh71");
-        info.put("database", "vaughnk3_final_group6");
+        info.put("database", "my_vaughnk3_final_group6");
         info.put("encrypt", true);
         info.put("trustServerCertificate", false);
         info.put("loginTimeout", 30);
