@@ -13,7 +13,7 @@ public class Jared {
     public static void query() {
         //Creating connection specifics here
         try {
-            Class.forName("com.mysql.jdbc.Driver"); //Try to get the jdbc driver?
+            Class.forName("com.mysql.cj.jdbc.Driver"); //Try to get the jdbc driver?
         } catch (ClassNotFoundException e) {
             System.out.println("Could not find the java jdbc driver.");
             e.printStackTrace();
