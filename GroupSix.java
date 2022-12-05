@@ -59,6 +59,8 @@ public class GroupSix {
         }
     }
 
+    //KJ make query here
+
     private static void SeasonQuery(PreparedStatement stmt) throws Exception {
         String command = "";
         String output = "";
