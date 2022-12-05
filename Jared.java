@@ -16,6 +16,7 @@ public class Jared {
             Class.forName("com.mysql.jdbc.Driver"); //Try to get the jdbc driver?
         } catch (ClassNotFoundException e) {
             System.out.println("Could not find the java jdbc driver.");
+            e.printStackTrace();
         }
         String connUrl = "jdbc:mysql://deltona.birdnest.org:3306";
         Properties info = new Properties();
