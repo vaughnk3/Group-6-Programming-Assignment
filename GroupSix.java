@@ -60,7 +60,7 @@ public class GroupSix {
         }
     }
 
-    //kj
+    //KJ
     private static void TVShowQuery(PreparedStatement stmt) throws Exception {
         String command = "";
         String output = "";
@@ -93,7 +93,7 @@ public class GroupSix {
     }
     
     
-    //gavin
+    //Gavin
     private static void SeasonQuery(PreparedStatement stmt) throws Exception {
         String command = "";
         String output = "";
@@ -123,7 +123,7 @@ public class GroupSix {
         stmt.executeUpdate(command);
     }
 
-    //Episode query (Jared)
+    //Jared
     private static void EpisodeQuery(PreparedStatement stmt) throws Exception {
         String command = "";
         String output = "";
