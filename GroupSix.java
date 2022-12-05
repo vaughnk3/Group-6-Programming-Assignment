@@ -61,14 +61,9 @@ public class GroupSix {
         }
     }
 
-<<<<<<< HEAD
     //kj
     private static void TVShowQuery(Connection conn) throws Exception {
         PreparedStatement stmt = null;
-=======
-    //KJ
-    private static void TVShowQuery(PreparedStatement stmt) throws Exception {
->>>>>>> d66db2935188c2642a7de246c8ad747e907bcc46
         String command = "";
         String output = "";
 
@@ -106,14 +101,9 @@ public class GroupSix {
     }
     
     
-<<<<<<< HEAD
     //gavin
     private static void SeasonQuery(Connection conn) throws Exception {
         PreparedStatement stmt = null;
-=======
-    //Gavin
-    private static void SeasonQuery(PreparedStatement stmt) throws Exception {
->>>>>>> d66db2935188c2642a7de246c8ad747e907bcc46
         String command = "";
         String output = "";
 
@@ -150,14 +140,9 @@ public class GroupSix {
         stmt.close();
     }
 
-<<<<<<< HEAD
     //Episode query (Jared)
     private static void EpisodeQuery(Connection conn) throws Exception {
         PreparedStatement stmt = null;
-=======
-    //Jared
-    private static void EpisodeQuery(PreparedStatement stmt) throws Exception {
->>>>>>> d66db2935188c2642a7de246c8ad747e907bcc46
         String command = "";
         String output = "";
 
