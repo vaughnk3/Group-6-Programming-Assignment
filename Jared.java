@@ -1,10 +1,7 @@
 //Reference (based from):
 //  https://www.tutorialspoint.com/java_mysql/java_mysql_select_database
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.*;
 
 public class Jared {
@@ -15,6 +12,11 @@ public class Jared {
 
     public static void query() {
         //Creating connection specifics here
+        try {
+            Class.forName("com.mysql.jdbc.Driver"); //Try to get the jdbc driver?
+        } catch (ClassNotFoundException e) {
+            System.out.println("Could not find the java jdbc driver.");
+        }
         String connUrl = "jdbc:mysql://deltona.birdnest.org:3306";
         Properties info = new Properties();
         info.put("user", "my.vaughnk3");
