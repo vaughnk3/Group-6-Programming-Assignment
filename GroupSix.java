@@ -11,7 +11,6 @@ public class GroupSix {
     private static PreparedStatement StatementInjectionSanitation(Connection conn, String query) throws Exception {
         PreparedStatement stmt = conn.prepareStatement(query);
         stmt.setString(1, user);
-        stmt.setString(2, password);
         return stmt;
     }
 
