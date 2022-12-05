@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "jdbc": "^0.7.6"
+  }
+}
