@@ -5,15 +5,6 @@ import java.sql.*;
 import java.util.*;
 
 public class GroupSix {
-
-    static String user = "my.vaughnk3";
-    static String password = "!$w9oh71";
-    private static PreparedStatement StatementInjectionSanitation(Connection conn, String query) throws Exception {
-        PreparedStatement stmt = conn.prepareStatement(query);
-        stmt.setString(1, user);
-        return stmt;
-    }
-
     public static void main(String args[]) {
         Query();
     }
@@ -28,8 +19,8 @@ public class GroupSix {
         }
         String connUrl = "jdbc:mysql://deltona.birdnest.org:3306";
         Properties info = new Properties();
-        info.put("user", user);
-        info.put("password", password);
+        info.put("user", "my.vaughnk3");
+        info.put("password", "!$w9oh71");
         info.put("database", "my_vaughnk3_final_group6");
         info.put("encrypt", true);
         info.put("trustServerCertificate", false);
@@ -68,13 +59,13 @@ public class GroupSix {
 
         //Creation
         command = "INSERT INTO TVShow (id, name, yearReleased, description) VALUES (NULL, \"The Office\", 2004, \"The Office with Mitchel Scotch and Jimmy and Dwigt Schrute\");";
-        stmt = StatementInjectionSanitation(conn, command);
+        stmt = conn.prepareStatement(command);
         stmt.executeUpdate(command);
         stmt.close();
 
         //Retrieval (must display the results using the ResultingSet object)
         command = "SELECT * FROM TVShow;";
-        stmt = StatementInjectionSanitation(conn, command);
+        stmt = conn.prepareStatement(command);
         ResultSet retrievalSet = stmt.executeQuery(command);
         stmt.close();
         while(retrievalSet.next()) {
@@ -87,14 +78,17 @@ public class GroupSix {
         retrievalSet.close();
 
         //Update
-        command = "UPDATE TVShow SET description=\"The Office with Michael Scott and Jimmy and Dwight Schrute. New!\" WHERE name=\"The Office\";";
-        stmt = StatementInjectionSanitation(conn, command);
+        command = "UPDATE TVShow SET description=? WHERE name=?;";
+        stmt = conn.prepareStatement(command);
+        stmt.setString(1, "The Office with Michael Scott and Jimmy and Dwight Schrute. New!");
+        stmt.setString(2, "The Office");
         stmt.executeUpdate(command);
         stmt.close();
 
         //Deletion
-        command = "DELETE FROM TVShow WHERE name=\"The Office\";";
-        stmt = StatementInjectionSanitation(conn, command);
+        command = "DELETE FROM TVShow WHERE name=?;";
+        stmt = conn.prepareStatement(command);
+        stmt.setString(1, "The Office");
         stmt.executeUpdate(command);
         stmt.close();
     }
@@ -108,12 +102,12 @@ public class GroupSix {
 
         //Creation
         command = "INSERT INTO Season (id, seasonName, seasonNumber, tvShowID) VALUES (NULL, \"The Beginning\", 1, 1);";
-        stmt = StatementInjectionSanitation(conn, command);
+        stmt = conn.prepareStatement(command);
         stmt.executeUpdate(command);
         stmt.close();
         //Retrieval (must display the results using the ResultingSet object)
         command = "SELECT * FROM Season;";
-        stmt = StatementInjectionSanitation(conn, command);
+        stmt = conn.prepareStatement(command);
         ResultSet retrievalSet = stmt.executeQuery(command);
         stmt.close();
         while(retrievalSet.next()) {
@@ -127,14 +121,19 @@ public class GroupSix {
         retrievalSet.close();
 
         //Update
-        command = "UPDATE Season SET seasonName=\"True Beginning\" WHERE TVShowID=1 AND seasonNumber=1;";
-        stmt = StatementInjectionSanitation(conn, command);
+        command = "UPDATE Season SET seasonName=? WHERE TVShowID=? AND seasonNumber=?;";
+        stmt = conn.prepareStatement(command);
+        stmt.setString(1, "True Beginning");
+        stmt.setInt(2, 1);
+        stmt.setInt(3, 1);
         stmt.executeUpdate(command);
         stmt.close();
 
         //Deletion
-        command = "DELETE FROM Season WHERE tvShowID=1 AND seasonNumber=1;";
-        stmt = StatementInjectionSanitation(conn, command);
+        command = "DELETE FROM Season WHERE tvShowID=? AND seasonNumber=?;";
+        stmt = conn.prepareStatement(command);
+        stmt.setInt(1, 1);
+        stmt.setInt(2, 1);
         stmt.executeUpdate(command);
         stmt.close();
     }
@@ -147,12 +146,12 @@ public class GroupSix {
 
         //Creation
         command = "INSERT INTO Episode(id, seasonID, episodeNumber, episodeName, description, runtime) VALUES (NULL, 1, 1, \"The Office Field Guide\", \"When a documentary crew arrives at the office, manager Michael Scott attempts to paint a rosy picture but fails after learning the company will be downsizing.\" 23);";
-        stmt = StatementInjectionSanitation(conn, command);
+        stmt = conn.prepareStatement(command);
         stmt.executeUpdate(command);
         stmt.close();
         //Retrieval (must display the results using the ResultingSet object)
         command = "SELECT * FROM Episode;";
-        stmt = StatementInjectionSanitation(conn, command);
+        stmt = conn.prepareStatement(command);
         ResultSet retrievalSet = stmt.executeQuery(command);
         stmt.close();
         while(retrievalSet.next()) {
@@ -167,14 +166,19 @@ public class GroupSix {
         retrievalSet.close();
 
         //Update
-        command = "UPDATE Episode SET episodeName=\"The Office Pilot Ep. 1: The Office Field Guide\" WHERE seasonID=1 AND episodeNumber=1;";
-        stmt = StatementInjectionSanitation(conn, command);
+        command = "UPDATE Episode SET episodeName=? WHERE seasonID=? AND episodeNumber=?;";
+        stmt = conn.prepareStatement(command);
+        stmt.setString(1, "The Office Pilot Ep. 1: The Office Field Guide");
+        stmt.setInt(2, 1);
+        stmt.setInt(3, 1);
         stmt.executeUpdate(command);
         stmt.close();
 
         //Deletion
-        command = "DELETE FROM Episode WHERE seasonID=1 AND episodeNumber=1;";
-        stmt = StatementInjectionSanitation(conn, command);
+        command = "DELETE FROM Episode WHERE seasonID=? AND episodeNumber=?;";
+        stmt = conn.prepareStatement(command);
+        stmt.setInt(1, 1);
+        stmt.setInt(2, 1);
         stmt.executeUpdate(command);
         stmt.close();
     }
@@ -187,12 +191,12 @@ public class GroupSix {
 
         //Creation
         command = "INSERT INTO Person (id, firstName, lastName, sex) VALUES (NULL, \"John\", \"Madden\", \"Female\");";
-        stmt = StatementInjectionSanitation(conn, command);
+        stmt = conn.prepareStatement(command);
         stmt.executeUpdate(command);
         stmt.close();
         //Retrieval (must display the results using the ResultingSet object)
         command = "SELECT * FROM Person;";
-        stmt = StatementInjectionSanitation(conn, command);
+        stmt = conn.prepareStatement(command);
         ResultSet retrievalSet = stmt.executeQuery(command);
         stmt.close();
         while(retrievalSet.next()) {
@@ -205,14 +209,20 @@ public class GroupSix {
         retrievalSet.close();
 
         //Update
-        command = "UPDATE person SET firstName=\"Bobby\" WHERE id=1 AND firstName= \"John\";";
-        stmt = StatementInjectionSanitation(conn, command);
+        command = "UPDATE person SET firstName=? WHERE id=? AND firstName=?;";
+        stmt = conn.prepareStatement(command);
+        stmt.setString(1, "Bobby");
+        stmt.setInt(2, 1);
+        stmt.setString(3, "John");
         stmt.executeUpdate(command);
         stmt.close();
 
         //Deletion
-        command = "DELETE FROM Person WHERE id=1 AND firstName=\"John\";";
-        StatementInjectionSanitation(conn, command).executeUpdate(command);
+        command = "DELETE FROM Person WHERE id=? AND firstName=?;";
+        stmt = conn.prepareStatement(command);
+        stmt.setInt(1, 1);
+        stmt.setString(2, "John");
+        stmt.close();
     }
 
     private static void ACTS_IN_EPQuery(Connection conn) throws Exception {
@@ -222,12 +232,12 @@ public class GroupSix {
 
         //Creation
         command = "INSERT INTO ACTS_IN_EP (EpisodeID, PersonID) VALUES (1,1);";
-        stmt = StatementInjectionSanitation(conn, command);
+        stmt = conn.prepareStatement(command);
         stmt.executeUpdate(command);
         stmt.close();
         //Retrieval (must display the results using the ResultingSet object)
         command = "SELECT * FROM Person;";
-        stmt = StatementInjectionSanitation(conn, command);
+        stmt = conn.prepareStatement(command);
         ResultSet retrievalSet = stmt.executeQuery(command);
         stmt.close();
         while(retrievalSet.next()) {
@@ -238,14 +248,19 @@ public class GroupSix {
         retrievalSet.close();
 
         //Update
-        command = "UPDATE ACTS_IN_EP SET EpisodeID=2 WHERE EpisodeID=1 AND PersonID=1;";
-        stmt = StatementInjectionSanitation(conn, command);
+        command = "UPDATE ACTS_IN_EP SET EpisodeID=? WHERE EpisodeID=? AND PersonID=?;";
+        stmt = conn.prepareStatement(command);
+        stmt.setInt(1, 2);
+        stmt.setInt(2, 1);
+        stmt.setInt(3, 1);
         stmt.executeUpdate(command);
         stmt.close();
 
         //Deletion
-        command = "DELETE FROM ACTS_IN_EP WHERE EpisodeID=2 AND PersonID=1;";
-        stmt = StatementInjectionSanitation(conn, command);
+        command = "DELETE FROM ACTS_IN_EP WHERE EpisodeID=? AND PersonID=?;";
+        stmt = conn.prepareStatement(command);
+        stmt.setInt(1, 2);
+        stmt.setInt(2, 1);
         stmt.executeUpdate(command);
         stmt.close();
     }
