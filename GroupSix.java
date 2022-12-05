@@ -60,7 +60,7 @@ public class GroupSix {
     }
 
     //kj
-         private static void TVShowQuery(PreparedStatement stmt) throws Exception {
+    private static void TVShowQuery(PreparedStatement stmt) throws Exception {
         String command = "";
         String output = "";
 
@@ -83,7 +83,7 @@ public class GroupSix {
         retrievalSet.close();
 
         //Update
-        command = "UPDATE TVShow SET description=\"The Office with Michael Scott and Jimmy and Dwight Schrute. New!\" WHERE name=\"The Office\";"
+        command = "UPDATE TVShow SET description=\"The Office with Michael Scott and Jimmy and Dwight Schrute. New!\" WHERE name=\"The Office\";";
         stmt.executeUpdate(command);
 
         //Deletion
