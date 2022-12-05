@@ -40,7 +40,7 @@ public class GroupSix {
             stmt.setString(2, password);
 
             //Replace the comments with your own methods
-            //TvShow query (KJ)
+            TVShowQuery(stmt);
             SeasonQuery(stmt);
             EpisodeQuery(stmt);
             //Actors in Movie (Robert)
