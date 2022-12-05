@@ -43,7 +43,8 @@ public class GroupSix {
             TVShowQuery(stmt);
             SeasonQuery(stmt);
             EpisodeQuery(stmt);
-            //Actors in Movie (Robert)
+            PersonQuery(stmt);
+            ACTS_IN_EPQuery(stmt);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -154,7 +155,7 @@ public class GroupSix {
     }
 
     //RS
-    private static void Person(PreparedStatement stmt) throws Exception {
+    private static void PersonQuery(PreparedStatement stmt) throws Exception {
         String command = "";
         String output = "";
 
@@ -182,7 +183,7 @@ public class GroupSix {
         stmt.executeUpdate(command);
     }
 
-    private static void Person(PreparedStatement stmt) throws Exception {
+    private static void ACTS_IN_EPQuery(PreparedStatement stmt) throws Exception {
         String command = "";
         String output = "";
 
