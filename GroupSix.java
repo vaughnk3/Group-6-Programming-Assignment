@@ -82,11 +82,9 @@ public class GroupSix {
         System.out.println("Selected TV Show tuples: " + output);
         retrievalSet.close();
 
-
         //Update
         command = "UPDATE TVShow SET description=\"The Office with Michael Scott and Jimmy and Dwight Schrute. New!\" WHERE name=\"The Office\";"
         stmt.executeUpdate(command);
-
 
         //Deletion
         command = "DELETE FROM TVShow WHERE name=\"The Office\";";
@@ -114,9 +112,11 @@ public class GroupSix {
         }
         System.out.println("Selected Season tuples: " + output);
         retrievalSet.close();
+
         //Update
         command = "UPDATE Season SET seasonName=\"True Beginning\" WHERE TVShowID=1 AND seasonNumber=1;";
         stmt.executeUpdate(command);
+
         //Deletion
         command = "DELETE FROM Season WHERE tvShowID=1 AND seasonNumber=1;";
         stmt.executeUpdate(command);
@@ -143,9 +143,11 @@ public class GroupSix {
         }
         System.out.println("Selected Episode tuples: " + output);
         retrievalSet.close();
+
         //Update
         command = "UPDATE Episode SET episodeName=\"The Office Pilot Ep. 1: The Office Field Guide\" WHERE seasonID=1 AND episodeNumber=1;";
         stmt.executeUpdate(command);
+        
         //Deletion
         command = "DELETE FROM Episode WHERE seasonID=1 AND episodeNumber=1;";
         stmt.executeUpdate(command);
