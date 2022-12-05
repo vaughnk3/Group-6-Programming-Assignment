@@ -3,7 +3,7 @@
   //https://learn.microsoft.com/en-us/sql/connect/jdbc/step-3-proof-of-concept-connecting-to-sql-using-java?view=sql-server-ver16
 
 import java.sql.*;
-
+//TODO:
 //NEEDS FILE RENAMED TO GROUPSIXSTATEMENTS AND COLLECTIVSED TO ONE SINGLE FILE FOR EVERYONE
     public class GroupSixStatements {
         public static String connectionUrl =
