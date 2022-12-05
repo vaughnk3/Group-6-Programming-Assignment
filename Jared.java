@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.*;
 
 public class Jared {
 
@@ -13,17 +14,21 @@ public class Jared {
     }
 
     public static void query() {
+        //Creating connection specifics here
+        String connUrl = "jdbc:mysql://deltona.birdnest.org:3306";
+        Properties info = new Properties();
+        info.put("user", "my.vaughnk3");
+        info.put("password", "!$w9oh71");
+        info.put("database", "vaughnk3_final_group6");
+        info.put("encrypt", true);
+        info.put("trustServerCertificate", false);
+        info.put("loginTimeout", 30);
+
         String command = "";
         String output = "";
         try { 
             //TODO: Also, probably not safe due to SQL injection problem, so I'm going to try to see what I can do to fix that.
-            Connection connection = DriverManager.getConnection("jdbc:mysql://deltona.birdnest.org:3306"
-            + "database=vaughnk3_final_group6;"
-            + "user=my.vaughnk3;"
-            + "password=!$w9oh71;"
-            + "encrypt=true;"
-            + "trustServerCertificate=false;"
-            + "loginTimeout=30;");
+            Connection connection = DriverManager.getConnection(connUrl, info);
             Statement stmt = connection.createStatement();
             //Creation
             command = "INSERT INTO Episode(id, seasonID, episodeNumber, episodeName, description, runtime) VALUES (NULL, 1, 1, \"The Office Field Guide\", \"When a documentary crew arrives at the office, manager Michael Scott attempts to paint a rosy picture but fails after learning the company will be downsizing.\" 23);";
