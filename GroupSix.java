@@ -59,8 +59,42 @@ public class GroupSix {
         }
     }
 
-    //KJ make query here
+    //kj
+         private static void TVShowQuery(PreparedStatement stmt) throws Exception {
+        String command = "";
+        String output = "";
 
+        //Creation
+        command = "INSERT INTO TVShow (id, name, yearReleased, description) VALUES (NULL, \"The Office\", 2004, \"The Office with Mitchel Scotch and Jimmy and Dwigt Schrute\");";
+        stmt.executeUpdate(command);
+
+
+        //Retrieval (must display the results using the ResultingSet object)
+        command = "SELECT * FROM TVShow;";
+        ResultSet retrievalSet = stmt.executeQuery(command);
+        
+        while(retrievalSet.next()) {
+            output += "\n TV Show ID " + String.valueOf(retrievalSet.getInt("id")) + ": ";
+            output += "\n\t TV Show Name: " + (retrievalSet.getString("name"));
+            output += "\n\t Year Released: " + String.valueOf(retrievalSet.getInt("yearReleased"));
+            output += "\n\t Description: " + retrievalSet.getString("description");
+        }
+        System.out.println("Selected TV Show tuples: " + output);
+        retrievalSet.close();
+
+
+        //Update
+        command = "UPDATE TVShow SET description=\"The Office with Michael Scott and Jimmy and Dwight Schrute. New!\" WHERE name=\"The Office\";"
+        stmt.executeUpdate(command);
+
+
+        //Deletion
+        command = "DELETE FROM TVShow WHERE name=\"The Office\";";
+        stmt.executeUpdate(command);
+    }
+    
+    
+    //gavin
     private static void SeasonQuery(PreparedStatement stmt) throws Exception {
         String command = "";
         String output = "";
