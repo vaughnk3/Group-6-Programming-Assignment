@@ -8,6 +8,10 @@ import java.sql.Statement;
 
 public class Jared {
 
+    public static void main(String args[]) {
+        query();
+    }
+
     public static void query() {
         String command = "";
         String output = "";
