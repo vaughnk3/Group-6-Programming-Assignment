@@ -52,7 +52,7 @@ public class GroupSix {
         }
     }
 
-    //kj
+    //TV Show Query (KJ)
     private static void TVShowQuery(Connection conn) throws Exception {
         PreparedStatement stmt = null;
         String command = "";
@@ -95,7 +95,7 @@ public class GroupSix {
     }
     
     
-    //gavin
+    //Season Query (Gavin)
     private static void SeasonQuery(Connection conn) throws Exception {
         PreparedStatement stmt = null;
         String command = "";
@@ -139,7 +139,7 @@ public class GroupSix {
         stmt.close();
     }
 
-    //Episode query (Jared)
+    //Episode Query (Jared)
     private static void EpisodeQuery(Connection conn) throws Exception {
         PreparedStatement stmt = null;
         String command = "";
@@ -184,7 +184,7 @@ public class GroupSix {
         stmt.close();
     }
 
-    //RS
+    //Person Query & ACTS_IN_EP Query (Robert)
     private static void PersonQuery(Connection conn) throws Exception {
         PreparedStatement stmt = null;
         String command = "";
