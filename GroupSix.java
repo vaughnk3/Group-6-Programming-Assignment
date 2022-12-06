@@ -30,7 +30,9 @@ public class GroupSix {
         Connection connection = null;
         try { 
             //Establish the connection
+            System.out.println("Trying to establish connection...");
             connection = DriverManager.getConnection(connUrl, info);
+            System.out.println("Successfully established connection");
 
             //Replace the comments with your own methods
             TVShowQuery(connection);
